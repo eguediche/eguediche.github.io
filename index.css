@@ -1,0 +1,37 @@
+.card {
+	background-color: black;
+	border-radius: 30px;
+	border: solid;
+	border-color: black;
+	max-width: 800px;
+	overflow: hidden;
+}
+
+.navigation {
+	flex-direction: row;
+	background-color: black;
+	text-align: center;
+}
+
+article.navigation {
+	border: 1px solid blueviolet;
+	border-radius: 30px;
+	overflow: hidden;
+}
+
+h1 {
+	background-color: purple;
+	color: white;
+	flex-direction: row;
+	text-align: left;
+	margin: 0;
+}
+
+p {
+	background-color: black;
+	color: white;
+	border-color: purple;
+	text-align: left;
+	border-bottom: 2px solid purple;
+	max-width: 750px;
+}
