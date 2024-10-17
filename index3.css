@@ -1,0 +1,21 @@
+body{
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1{
+    color: white;
+    font-size: 50px;
+    display:flex;
+    flex-direction: column;
+}
+
+h2{
+    color: black;
+    font-size: 80px;
+    display: flex;
+    flex-direction: column;
+}
