@@ -1,0 +1,11 @@
+/* 	
+cursor: url("images/cursor.png"), pointer;
+change le pointer pour un briquet mgl
+ */
+
+ body {
+    cursor : url("svg-vector-image-of-lighter--freesvgorg30814.png"), pointer;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+ }
