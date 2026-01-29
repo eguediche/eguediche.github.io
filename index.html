@@ -1,12 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon portfolio incroyable</title>
+    <title>Eden GUEDICHE - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+
+     <!-- Favicon (icône du site) -->
+    <link rel="icon" type="image/png" href="/images/choso_icon.png">
+    <link rel="apple-touch-icon" href="/images/choso_icon.png">
+
+    <!-- Meta tags pour SEO -->
+    <meta name="description" content="Portfolio de Eden GUEDICHE - Développeur web front-end et back-end">
+    <meta name="author" content="Eden GUEDICHE">
 </head>
 <body>
-    <h1>eeee</h1>
+    <div class="background-wrapper">
+        <div class="container">
+            <div class="content-card">
+                <!-- Header Section -->
+                <header class="profile-header">
+                    <div class="profile-icon">
+                        <img src="/images/profil.png" alt="Eden G">
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-name">Eden GUEDICHE</h1>
+                        <p class="profile-title">Web dev, front end and back end</p>
+                    </div>
+                </header>
+
+                <!-- About Section -->
+                <section class="about-section">
+                    <h2 class="section-title">À propos de moi :</h2>
+                    <p class="about-text">
+                        Je sais pas trop comment me décrire. Je suis moi : un étudiant de 16 ans qui aime les sports de combat et le code. J’aime manger, dormir… bon, je suis comme tout le monde quoi,
+                        Mais si je devais me trouver un truc spécial qui me décrit… ma façon de parler, je dirais. J’aime bien parler, j’ai toujours su bien m’exprimer et de manière fluide. Enfin, je sais bien pipoter et inventer des trucs quand il faut passer au tableau quoi… La créativité, ou plutôt l’improvisation orale, ça, c’est mon fort.
+                    </p>
+                </section>
+
+                <!-- Navigation Tabs -->
+                <nav class="nav-tabs">
+                    <button class="tab-btn active" data-tab="projets">Mes projets</button>
+                    <button class="tab-btn" data-tab="contacts">Mes contacts</button>
+                    <button class="tab-btn" data-tab="parcours">Mon parcours</button>
+                </nav>
+
+                <!-- Tab Content Container -->
+                <div class="tab-content-wrapper">
+                    <!-- Projects Tab -->
+                    <div class="tab-content active" id="projets">
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-thumbnail">
+                                    <img src="projet.png" alt="Projet">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-name">Nom projet</h3>
+                                    <p class="project-desc">blabla blabbabelabbelab blabblbabil li bbababla li</p>
+                                    <a href="#" class="project-link">projet.lien</a>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-thumbnail">
+                                    <img src="projet.png" alt="Projet">
+                                </div>
+                                <div class="project-info">
+                                    <h3 class="project-name">Nom projet</h3>
+                                    <p class="project-desc">blabla blabbabelabbelab blabblbabil li bbababla li</p>
+                                    <a href="#" class="project-link">projet.lien</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contacts Tab -->
+                    <div class="tab-content" id="contacts">
+                        <div class="contact-list">
+                            <a href="#" class="contact-item">Github lien</a>
+                            <a href="#" class="contact-item">Numéro de tel</a>
+                            <a href="#" class="contact-item">email</a>
+                            <a href="#" class="contact-item">discord</a>
+                        </div>
+                        <p class="contact-note">
+                            si vous souhaitez me contacter à des fin professionels, veuillez utiliser mon email
+                        </p>
+                        <p class="contact-warning">
+                            si je ne repond pas a votre email au bout de 3jours, considerer cela comme un non
+                        </p>
+                    </div>
+
+                    <!-- Parcours Tab -->
+                    <div class="tab-content" id="parcours">
+                        <div class="parcours-content">
+                            <p class="parcours-text">
+                                stage au hcl en 3ème, un stage qui m'a permis de découvrir le métier de cybersécurité dans la partie dev au hcl, cela ma outé (les yeux sur ce que je voulais faire plus tard)
+                            </p>
+                            <p class="parcours-text">
+                                lycée EDEN school qui ma permis d'apprendre le métier de dev web et back end, j'ai eu l'occasion d'avoir une idée claire sur le métier de dev, ce portfolio a été fait l'es de ma 2eme année la bas pour m'aider a trouver une entreprise pour pouvoir passer en 3ème annee
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Note -->
+                <footer class="footer-note">
+                    <p>This portfolio is still in development and will be updated many times, you can see all changes in the blog (jsp prk c anglais sah, ptetre car c styler?)</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
