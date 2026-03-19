@@ -67,19 +67,24 @@ document.addEventListener("keydown", function (e) {
 // Language flag swapper
 // ================= //
 
-document.addEventListener("click", function (e) {
-  const flagFR = document.querySelector(".fr-flag");
-  const flagGB = document.querySelector(".gb-flag");
+document.querySelectorAll('.flag').forEach(flag => {
+    flag.addEventListener('click', () => {
+        const frFlag = document.querySelector('.fr-flag');
+        const gbFlag = document.querySelector('.gb-flag');
 
-  if (flagFR === true) {
-    flagFR.style.display = "none";
-    flagGB.style.display = "block";
-    /* either, make every text another variant in english or make another index.html in full english and swap them?  */
-  }
-
-  if (flagGB === true) {
-    flagGB.style.display = "none";
-    flagFR.style.display = "block";
-    /* same but back to french */
-  }
+        // On inverse l'affichage des deux drapeaux
+        if (gbFlag.style.display === 'none') {
+            frFlag.style.display = 'none';
+            gbFlag.style.display = 'block';
+            // Ici : passer en français (ex: changer des textes, ou recharger page fr)
+            console.log("Passage en FRANÇAIS");
+            // Exemple : document.documentElement.lang = 'fr';
+        } else {
+            frFlag.style.display = 'block';
+            gbFlag.style.display = 'none';
+            // Ici : passer en anglais
+            console.log("Passage en ENGLISH");
+            // Exemple : document.documentElement.lang = 'en';
+        }
+    });
 });
