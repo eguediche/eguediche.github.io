@@ -62,7 +62,7 @@ a {
         position: fixed;
         inset: 0;
         background-image: url('images/background.png');
-        background-size: cover;
+        background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
         z-index: -1;
@@ -522,18 +522,6 @@ a {
     color: rgba(255,255,255,0.5);
     letter-spacing: 1px;
     text-transform: uppercase;
-}
-
-/* Ligne diagonale décorative entre les deux moitiés */
-.split-divider {
-    position: absolute;
-    top: 50%;
-    left: -10%;
-    width: 120%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-    transform: translateY(-50%) rotate(-6deg);
-    pointer-events: none;
 }
 
 /* Bouton fermer */
