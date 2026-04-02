@@ -5,151 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eden GUEDICHE - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Favicon (icône du site) -->
-    <link rel="icon" type="image/png" href="/images/choso_icon.png" />
-    <link rel="apple-touch-icon" href="/images/choso_icon.png" />
-
-    <!-- Meta tags pour SEO -->
-    <meta
-      name="description"
-      content="Portfolio de Eden GUEDICHE - Développeur web full stack"
-    />
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <link rel="apple-touch-icon" href="images/icon.png" />
+    <meta name="description" content="Portfolio de Eden GUEDICHE - Développeur web full stack" />
     <meta name="author" content="Eden GUEDICHE" />
   </head>
   <body>
     <div class="background-wrapper">
       <div class="container">
         <div class="content-card">
-          <!-- Header Section -->
+
+          <!-- ===== Header ===== -->
           <header class="profile-header">
             <div class="profile-icon">
-              <img src="/images/goku_pfp.jpg" alt="Eden G" />
+              <img src="images/profile.jpg" alt="Eden G" />
             </div>
+
             <div class="profile-info">
               <h1 class="profile-name">Eden GUEDICHE</h1>
-              <p class="profile-title">Web dev full stack</p>
+              <p class="profile-title" data-i18n="profile.title">Web dev full stack</p>
             </div>
+
+            <!-- Language selector -->
             <div class="language-select">
-                <p class="flag-p">You can change language here</p>
-                <p class="flag-emoji">👇</p>
-                <img class="fr-flag flag" src="/images/fr.png" alt="Français">
-                <img class="gb-flag flag" src="/images/gb.png" alt="English">
+              <!-- Badge langue actuelle (mobile uniquement) -->
+              <span class="lang-badge mobile-only" data-i18n="lang.badge">FR</span>
+              <!-- Hint texte (desktop uniquement) -->
+              <span class="flag-hint-text desktop-only" data-i18n="lang.hint">Changer la langue 👇</span>
+              <!-- Drapeaux -->
+              <div class="flag-buttons">
+                <img class="flag fr-flag" src="images/flag-fr.png" alt="Français" title="Français" />
+                <img class="flag gb-flag" src="images/flag-en.png" alt="English" title="English" />
+              </div>
             </div>
           </header>
 
-          <!-- About Section -->
+          <!-- ===== About ===== -->
           <section class="about-section">
-            <h2 class="section-title">À propos de moi :</h2>
-            <p class="about-text">
-              J’ai créé ce portfolio afin de trouver une alternance pour ma
-              3ᵉ année de lycée a <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>. Curieux et dynamique, je me suis intéressé au code dès
-              la classe de 3ᵉ, après avoir eu envie de créer mon propre jeu
-              vidéo à partir d’un jeu que j’aimais particulièrement. Même si
-              c’était plus facile à dire qu’à faire, cette envie m’a poussé à
-              poursuivre mes études dans le développement. Je me suis donc
-              orienté vers <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>,
-              une école spécialisée en développement web et web mobile full
-              stack, où j’ai appris à utiliser des outils.
-              Ce portfolio regroupe plusieurs de mes projets, des
-              moyens de me contacter ainsi qu’une description de mes compétences technique.
+            <h2 class="section-title" data-i18n="about.title">À propos de moi :</h2>
+            <p class="about-text" data-i18n-html="about.text">
+              J'ai créé ce portfolio afin de trouver une alternance pour ma
+              3ᵉ année de lycée à <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>.
+              Curieux et dynamique, je me suis intéressé au code dès la classe de 3ᵉ,
+              après avoir eu envie de créer mon propre jeu vidéo. Cette envie m'a poussé
+              à poursuivre mes études dans le développement. Je me suis donc orienté vers
+              <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>,
+              une école spécialisée en développement web et web mobile full stack.
+              Ce portfolio regroupe mes projets, mes contacts et mes compétences techniques.
             </p>
-            <!--voir plus -> (avec plus de description plus detailler et mieux presenter (card sur qui je suis, formation, alternance) et que j'ai gagenr code i the dark ect...)-->
           </section>
 
-          <!-- Navigation Tabs -->
+          <!-- ===== Navigation ===== -->
           <nav class="nav-tabs">
-            <button class="tab-btn active" data-tab="projets">
-              Projets
-            </button>
-            <button class="tab-btn" data-tab="contacts">Contacts</button>
-            <button class="tab-btn" data-tab="competences">Compétences</button>
-            <p class="nav-p">Vous pouvez changer de tab via les flèches directionnelle</p>
+            <button class="tab-btn active" data-tab="projets"     data-i18n="tab.projects">Projets</button>
+            <button class="tab-btn"        data-tab="contacts"    data-i18n="tab.contacts">Contacts</button>
+            <button class="tab-btn"        data-tab="competences" data-i18n="tab.skills">Compétences</button>
+            <!-- Flèches : desktop uniquement -->
+            <p class="nav-hint desktop-only" data-i18n="nav.hint">← → pour changer d'onglet</p>
           </nav>
-          <!-- Tab Content Container -->
+
+          <!-- ===== Tab Content ===== -->
           <div class="tab-content-wrapper">
-            <!-- Projects Tab -->
+
+            <!-- Projects -->
             <div class="tab-content active" id="projets">
               <div class="projects-grid">
+
                 <a href="https://github.com/eguediche/tp-ip-adress-tracker" target="_blank" rel="noopener" class="project-link">
                   <div class="project-card">
                     <div class="project-thumbnail">
-                      <img src="images\ip_tracker.webp" alt="Projet" />
+                      <img src="images/project-ip-tracker.webp" alt="IP Tracker" />
                     </div>
                     <div class="project-info">
-                      <h3 class="project-name">IP Tracker</h3>
-                      <p class="project-desc">
-                        Un projet en html css et js qui a pour but de trouver une ville via une addresse ip, projet fait en milieu d'année après avoir commencée mon apprentissage du dev a EDEN school, c'étais le début de mon apprentissage JS et des API publique.
+                      <div class="project-header">
+                        <h3 class="project-name">IP Tracker</h3>
+                        <span class="clickable-badge" data-i18n="project.clickable">👆 je suis clickable</span>
+                      </div>
+                      <p class="project-desc" data-i18n="project.ip.desc">
+                        Un projet en HTML, CSS et JS qui localise une ville via une adresse IP.
+                        Réalisé en milieu d'année, c'était le début de mon apprentissage de JS et des API publiques.
                       </p>
-                  </a>
-                  <!--Voir plus de projet -> (dans les futur faire une page full projet avec meilleur explication techno pourquoi comment ce que ca ma apporter ect...)-->
+                      <span class="project-tags">HTML · CSS · JS · API</span>
+                    </div>
                   </div>
-                </div>
-                <p class="nav-p">Les projets sont clickable si vous souhaittez les consulter</p>
+                </a>
+
                 <a href="https://github.com/eguediche/api-food-searcher" target="_blank" rel="noopener" class="project-link">
                   <div class="project-card">
                     <div class="project-thumbnail">
-                      <img src="images\food_searcher.png" alt="Projet" />
+                      <img src="images/project-food-searcher.png" alt="Food Searcher" />
                     </div>
                     <div class="project-info">
-                      <h3 class="project-name">API Food Searcher</h3>
-                      <p class="project-desc">
-                        Un projet en html css et js qui fait appel a une api pour chercher des plats via une recherche, projet fait en fin de 1er année a EDEN school, fait en moins d'une heure c'était la fin de mon cursus sur JS et les API, et le début de mon apprentissage du back-end.
+                      <div class="project-header">
+                        <h3 class="project-name">API Food Searcher</h3>
+                        <span class="clickable-badge" data-i18n="project.clickable">👆 je suis clickable</span>
+                      </div>
+                      <p class="project-desc" data-i18n="project.food.desc">
+                        Un projet en HTML, CSS et JS qui recherche des plats via une API.
+                        Fait en fin de 1ère année, en moins d'une heure — c'était la fin de mon cursus JS avant d'attaquer le back-end.
                       </p>
-                  </a>
+                      <span class="project-tags">HTML · CSS · JS · API</span>
+                    </div>
                   </div>
-                </div>
+                </a>
+
               </div>
             </div>
 
-            <!-- Contacts Tab -->
+            <!-- Contacts -->
             <div class="tab-content" id="contacts">
               <div class="contact-list">
-                <a href="https://github.com/eguediche" target="_blank" rel="noopener" class="contact-item"
-                  >Github</a
-                >
-                <a href="mailto:eden.guediche@icloud.com" target="_blank" class="contact-item">Mon email</a>
-                <a href="https://discord.com/users/935867927788400640" target="_blank" rel="noopener" class="contact-item">Mon discord</a>
+                <a href="https://github.com/eguediche" target="_blank" rel="noopener" class="contact-item">
+                  <span class="contact-icon">→</span> Github
+                </a>
+                <a href="mailto:eden.guediche@icloud.com" class="contact-item">
+                  <span class="contact-icon">→</span> Email
+                </a>
+                <a href="https://discord.com/users/935867927788400640" target="_blank" rel="noopener" class="contact-item">
+                  <span class="contact-icon">→</span> Discord
+                </a>
               </div>
-              <p class="contact-note">
-                si vous souhaitez me contacter à des fin professionels, veuillez
-                utiliser mon email
+              <p class="contact-note" data-i18n="contact.note">
+                Pour tout contact professionnel, merci de passer par l'email.
               </p>
             </div>
 
-            <!-- Competence Tab -->
+            <!-- Skills -->
             <div class="tab-content" id="competences">
-              ## Stack technique
 
-**Maîtrisé**
+              <div class="skills-section">
+                <h3 class="skills-label" data-i18n="skills.mastered">Maîtrisé</h3>
+                <div class="skills-badges">
+                  <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5"/>
+                  </a>
+                  <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3"/>
+                  </a>
+                  <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript"/>
+                  </a>
+                  <a href="https://www.php.net" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/php/777BB4" alt="PHP"/>
+                  </a>
+                  <a href="https://www.mysql.com" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"/>
+                  </a>
+                  <a href="https://getcomposer.org" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/composer/885630" alt="Composer"/>
+                  </a>
+                </div>
+              </div>
 
-<a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" height="35"/></a>
-<a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener" ><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" height="35"/></a>
-<a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="35"/></a>
-<a href="https://www.php.net" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" height="35"/></a>
-<a href="https://www.mysql.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" height="35"/></a>
-<a href="https://getcomposer.org" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white" height="35"/></a>
+              <div class="skills-section">
+                <h3 class="skills-label" data-i18n="skills.learning">En apprentissage</h3>
+                <div class="skills-badges">
+                  <a href="https://laravel.com/docs" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel"/>
+                  </a>
+                </div>
+              </div>
 
-**En apprentissage**
+              <div class="skills-section">
+                <h3 class="skills-label" data-i18n="skills.next">Prochainement</h3>
+                <div class="skills-badges">
+                  <a href="https://nodejs.org" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js"/>
+                  </a>
+                  <a href="https://react.dev" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="React"/>
+                  </a>
+                  <a href="https://vuejs.org" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue.js"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue.js"/>
+                  </a>
+                  <a href="https://symfony.com/doc" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=symfony&logoColor=white" alt="Symfony"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/symfony/111111" alt="Symfony"/>
+                  </a>
+                  <a href="https://www.lua.org/docs.html" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" alt="Lua"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/lua/2C2D72" alt="Lua"/>
+                  </a>
+                  <a href="https://docs.docker.com" target="_blank" rel="noopener" class="skill-link">
+                    <img class="badge-full" src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+                    <img class="badge-icon" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"/>
+                  </a>
+                </div>
+              </div>
 
-<a href="https://laravel.com/docs" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" height="35"/></a>
-
-<!--voir plus -> (la suite + mes competence soft skills hard skills ect... + mes compétence autre que le dev ect...)-->
-**La suite**
-
-<a href="https://nodejs.org" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" height="35"/></a>
-<a href="https://react.dev" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" height="35"/></a>
-<a href="https://vuejs.org" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" height="35"/></a>
-<a href="https://symfony.com/doc" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=symfony&logoColor=white" height="35"/></a>
-<a href="https://www.lua.org/docs.html" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" height="35"/></a>
-<a href="https://docs.docker.com" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" height="35"/></a>
+            </div>
           </div>
 
-          <!-- Footer Note -->
+          <!-- ===== Footer ===== -->
           <footer class="footer-note">
-            <p>
-              Ce portfolio est encore en cours de développement, il évoluera beaucoup.  :)
+            <p data-i18n="footer.text">Ce portfolio est encore en cours de développement. :)</p>
           </footer>
+
         </div>
       </div>
     </div>
