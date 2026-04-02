@@ -29,7 +29,7 @@ const translations = {
     "tab.contacts":      "Contacts",
     "tab.skills":        "Compétences",
     "nav.hint":          "← → pour changer d'onglet",
-    "project.clickable": "👆 je suis clickable",
+    "project.clickable": "👆 cliquer moi",
     "project.ip.desc":   "Un projet en HTML, CSS et JS qui localise une ville via une adresse IP. Réalisé en milieu d'année, c'était le début de mon apprentissage de JS et des API publiques.",
     "project.food.desc": "Un projet en HTML, CSS et JS qui recherche des plats via une API. Fait en fin de 1ère année, en moins d'une heure — c'était la fin de mon cursus JS avant d'attaquer le back-end.",
     "contact.note":      "Pour tout contact professionnel, merci de passer par l'email.",

@@ -180,17 +180,16 @@ a {
     border: 1px solid transparent;
     border-radius: 2px;
     transition: transform 0.2s, border-color 0.2s;
-    width: 26px;      /* mobile */
+    width: 36px;      /* mobile */
     display: block;
 }
 
 @media (min-width: 769px) {
-    .flag { width: 36px; } /* desktop */
+    .flag { width: 45px; } /* desktop */
 }
 
 .flag:hover {
     transform: scale(1.12);
-    border-color: var(--text-dark);
 }
 
 /* ==================== */
