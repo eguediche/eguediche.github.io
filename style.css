@@ -48,7 +48,7 @@ a {
 }
 
 /* ==================== */
-/* Background Wrapper   */
+/* Background           */
 /* ==================== */
 .background-wrapper {
     position: relative;
@@ -62,7 +62,7 @@ a {
         position: fixed;
         inset: 0;
         background-image: url('images/background.png');
-        background-size: 100% 100%;
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         z-index: -1;
@@ -102,6 +102,7 @@ a {
     .content-card {
         min-height: auto;
         border: 2px solid var(--border);
+        box-shadow: 6px 6px 0 var(--border), 0 0 60px var(--shadow);
     }
 }
 
@@ -126,11 +127,7 @@ a {
     flex-shrink: 0;
 }
 
-.profile-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.profile-icon img { width: 100%; height: 100%; object-fit: cover; }
 
 .profile-info { flex: 1; }
 
@@ -142,14 +139,11 @@ a {
     line-height: 1.2;
 }
 
-.profile-title {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 4px;
-}
+.profile-title { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
 
 /* ========================= */
 /* Language Selector         */
+/* flag unique + badge       */
 /* ========================= */
 .language-select {
     display: flex;
@@ -159,7 +153,7 @@ a {
     flex-shrink: 0;
 }
 
-/* Badge "FR" / "EN" au-dessus du drapeau — mobile uniquement */
+/* Badge "EN" / "FR" au-dessus — mobile only */
 .lang-badge {
     font-size: 10px;
     font-weight: bold;
@@ -167,46 +161,37 @@ a {
     background: var(--text-dark);
     color: var(--bg-card);
     padding: 2px 6px;
+    line-height: 1.4;
     /* display géré par .mobile-only */
 }
 
-/* Hint texte — desktop uniquement */
+/* Hint desktop */
 .flag-hint-text {
     font-size: 10px;
     color: var(--text-muted);
     text-align: center;
     max-width: 80px;
     line-height: 1.4;
-    /* display géré par .desktop-only */
 }
 
-/* Conteneur drapeaux */
-.flag-buttons {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-/* Drapeaux — taille adaptative */
+/* Drapeau unique */
 .flag {
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 2px;
-    transition: transform 0.2s, border-color 0.2s, opacity 0.2s;
-    width: 22px; /* mobile : petit */
+    transition: transform 0.2s, border-color 0.2s;
+    width: 26px;      /* mobile */
+    display: block;
 }
 
 @media (min-width: 769px) {
-    .flag { width: 32px; } /* desktop : normal */
+    .flag { width: 36px; } /* desktop */
 }
 
 .flag:hover {
     transform: scale(1.12);
     border-color: var(--text-dark);
 }
-
-/* Flag de la langue active légèrement atténué */
-.flag.active-lang { opacity: 0.35; }
 
 /* ==================== */
 /* About Section        */
@@ -221,12 +206,7 @@ a {
     margin-bottom: 10px;
 }
 
-.about-text {
-    font-size: 13px;
-    line-height: 1.65;
-    opacity: 0.9;
-}
-
+.about-text { font-size: 13px; line-height: 1.65; opacity: 0.9; }
 .about-text a { font-weight: bold; }
 
 /* ==================== */
@@ -256,16 +236,8 @@ a {
     letter-spacing: 0.5px;
 }
 
-.tab-btn:hover {
-    background: var(--text-dark);
-    color: var(--bg-card);
-    transform: translateY(-2px);
-}
-
-.tab-btn.active {
-    background: var(--text-dark);
-    color: var(--bg-card);
-}
+.tab-btn:hover { background: var(--text-dark); color: var(--bg-card); transform: translateY(-2px); }
+.tab-btn.active { background: var(--text-dark); color: var(--bg-card); }
 
 .nav-hint {
     width: 100%;
@@ -273,7 +245,6 @@ a {
     color: var(--text-muted);
     text-align: center;
     margin-top: 2px;
-    /* display géré par .desktop-only */
 }
 
 /* ==================== */
@@ -281,11 +252,7 @@ a {
 /* ==================== */
 .tab-content-wrapper { min-height: 280px; }
 
-.tab-content {
-    display: none;
-    animation: fadeIn 0.3s ease;
-}
-
+.tab-content { display: none; animation: fadeIn 0.3s ease; }
 .tab-content.active { display: block; }
 
 @keyframes fadeIn {
@@ -296,22 +263,16 @@ a {
 /* ==================== */
 /* Projects             */
 /* ==================== */
-.projects-grid {
-    display: grid;
-    gap: 20px;
-}
+.projects-grid { display: grid; gap: 20px; }
 
-.project-link {
-    text-decoration: none;
-    display: block;
-}
-
+/* card clickable sans <a> autour */
 .project-card {
     display: flex;
     gap: 14px;
     padding: 14px;
     border: 2px solid var(--text-dark);
     background: var(--card-inner);
+    cursor: pointer;
     transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
@@ -332,25 +293,11 @@ a {
     justify-content: center;
 }
 
-.project-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.project-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
 
-.project-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+.project-info { flex: 1; display: flex; flex-direction: column; gap: 5px; }
 
-.project-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
+.project-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
 .project-name {
     font-size: 14px;
@@ -359,7 +306,6 @@ a {
     letter-spacing: 0.5px;
 }
 
-/* Badge "👆 je suis clickable" */
 .clickable-badge {
     font-size: 11px;
     font-weight: bold;
@@ -373,14 +319,10 @@ a {
 
 @keyframes pulse-badge {
     0%, 100% { opacity: 1; }
-    50%       { opacity: 0.55; }
+    50%       { opacity: 0.5; }
 }
 
-.project-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.45;
-}
+.project-desc { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
 
 .project-tags {
     font-size: 11px;
@@ -393,12 +335,7 @@ a {
 /* ==================== */
 /* Contacts             */
 /* ==================== */
-.contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
-}
+.contact-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
 
 .contact-item {
     display: flex;
@@ -416,12 +353,7 @@ a {
     transition: all 0.2s ease;
 }
 
-.contact-item:hover {
-    background: var(--text-dark);
-    color: var(--bg-card);
-    transform: translateX(5px);
-}
-
+.contact-item:hover { background: var(--text-dark); color: var(--bg-card); transform: translateX(5px); }
 .contact-icon { transition: transform 0.2s; }
 .contact-item:hover .contact-icon { transform: translateX(4px); }
 
@@ -437,16 +369,8 @@ a {
 /* ==================== */
 /* Skills               */
 /* ==================== */
-.skills-section {
-    margin-bottom: 20px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.skills-section:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
+.skills-section { margin-bottom: 20px; padding-bottom: 18px; border-bottom: 1px solid var(--border-light); }
+.skills-section:last-child { border-bottom: none; margin-bottom: 0; }
 
 .skills-label {
     font-size: 12px;
@@ -457,30 +381,14 @@ a {
     color: var(--text-dark);
 }
 
-.skills-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-}
+.skills-badges { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 
-.skill-link {
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.18s, opacity 0.18s;
-    opacity: 0.88;
-}
+.skill-link { display: inline-flex; align-items: center; transition: transform 0.18s, opacity 0.18s; opacity: 0.88; }
+.skill-link:hover { transform: translateY(-2px); opacity: 1; }
 
-.skill-link:hover {
-    transform: translateY(-2px);
-    opacity: 1;
-}
-
-/* Desktop : badge logo + texte */
 .badge-full { display: block; height: 32px; }
 .badge-icon { display: none; }
 
-/* Mobile : icône seule */
 @media (max-width: 768px) {
     .badge-full { display: none; }
     .badge-icon {
@@ -488,7 +396,7 @@ a {
         width: 34px;
         height: 34px;
         padding: 5px;
-        background: rgba(255, 255, 255, 0.55);
+        background: rgba(255,255,255,0.55);
         border: 1px solid var(--border-light);
         border-radius: 4px;
         object-fit: contain;
@@ -498,30 +406,168 @@ a {
 /* ==================== */
 /* Footer               */
 /* ==================== */
-.footer-note {
-    margin-top: 36px;
-    padding-top: 16px;
-    border-top: 2px solid var(--text-dark);
-}
-
-.footer-note p {
-    font-size: 11px;
-    color: var(--text-muted);
-}
+.footer-note { margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--text-dark); }
+.footer-note p { font-size: 11px; color: var(--text-muted); }
 
 /* ==================== */
-/* Responsive           */
+/* Responsive card      */
 /* ==================== */
 @media (max-width: 480px) {
-    .content-card  { padding: 22px 18px; }
-    .profile-name  { font-size: 16px; }
+    .content-card { padding: 22px 18px; }
+    .profile-name { font-size: 16px; }
+    .nav-tabs { flex-direction: column; }
+    .tab-btn { min-width: 100%; }
+    .project-card { flex-direction: column; }
+    .project-thumbnail { width: 100%; height: 110px; }
+}
 
-    .nav-tabs      { flex-direction: column; }
-    .tab-btn       { min-width: 100%; }
+/* ================================================ */
+/* PROJECT OVERLAY — split diagonal style           */
+/* ================================================ */
 
-    .project-card  { flex-direction: column; }
-    .project-thumbnail {
-        width: 100%;
-        height: 110px;
-    }
+.project-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.project-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Les deux moitiés */
+.split-half {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: filter 0.25s ease;
+    overflow: hidden;
+}
+
+/* Haut : GitHub — fond très sombre */
+.split-top {
+    background: #0d1117;        /* couleur GitHub */
+    clip-path: polygon(0 0, 100% 0, 100% 52%, 0 65%);
+    align-items: flex-start;
+    padding-top: 10%;
+}
+
+/* Bas : Live — fond légèrement plus clair */
+.split-bottom {
+    background: #1a1f2e;
+    clip-path: polygon(0 60%, 100% 48%, 100% 100%, 0 100%);
+    align-items: flex-end;
+    padding-bottom: 10%;
+}
+
+.split-half:hover { filter: brightness(1.15); }
+
+/* Contenu centré dans chaque moitié */
+.split-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px;
+    pointer-events: none;   /* le clic passe au <a> parent */
+}
+
+/* Logo GitHub SVG */
+.gh-logo {
+    width: 52px;
+    height: 52px;
+    opacity: 0.9;
+}
+
+/* Image preview du projet */
+.split-preview {
+    width: 120px;
+    height: 80px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
+
+.split-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Labels texte */
+.split-label {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.split-sub {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Ligne diagonale décorative entre les deux moitiés */
+.split-divider {
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 120%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: translateY(-50%) rotate(-6deg);
+    pointer-events: none;
+}
+
+/* Bouton fermer */
+.overlay-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    z-index: 10;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-close:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #fff;
+}
+
+/* Hover effet lumineux sur chaque half — curseur pointer */
+.split-top, .split-bottom { cursor: pointer; }
+
+/* Responsive overlay */
+@media (max-width: 480px) {
+    .split-label { font-size: 14px; }
+    .gh-logo { width: 38px; height: 38px; }
+    .split-preview { width: 90px; height: 60px; }
 }

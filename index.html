@@ -26,33 +26,20 @@
               <p class="profile-title" data-i18n="profile.title">Web dev full stack</p>
             </div>
 
-            <!-- Language selector -->
+            <!-- Language selector : UN seul drapeau (langue cible) -->
             <div class="language-select">
-              <!-- Badge langue actuelle (mobile uniquement) -->
-              <span class="lang-badge mobile-only" data-i18n="lang.badge">FR</span>
-              <!-- Hint texte (desktop uniquement) -->
               <span class="flag-hint-text desktop-only" data-i18n="lang.hint">Changer la langue 👇</span>
-              <!-- Drapeaux -->
-              <div class="flag-buttons">
-                <img class="flag fr-flag" src="images/flag-fr.png" alt="Français" title="Français" />
-                <img class="flag gb-flag" src="images/flag-en.png" alt="English" title="English" />
-              </div>
+              <!-- badge mobile au-dessus du drapeau -->
+              <span class="lang-badge mobile-only" id="lang-badge">EN</span>
+              <!-- drapeau unique — src changée par JS -->
+              <img class="flag" id="lang-flag" src="images/flag-en.png" alt="Switch language" title="Switch language" />
             </div>
           </header>
 
           <!-- ===== About ===== -->
           <section class="about-section">
             <h2 class="section-title" data-i18n="about.title">À propos de moi :</h2>
-            <p class="about-text" data-i18n-html="about.text">
-              J'ai créé ce portfolio afin de trouver une alternance pour ma
-              3ᵉ année de lycée à <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>.
-              Curieux et dynamique, je me suis intéressé au code dès la classe de 3ᵉ,
-              après avoir eu envie de créer mon propre jeu vidéo. Cette envie m'a poussé
-              à poursuivre mes études dans le développement. Je me suis donc orienté vers
-              <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>,
-              une école spécialisée en développement web et web mobile full stack.
-              Ce portfolio regroupe mes projets, mes contacts et mes compétences techniques.
-            </p>
+            <p class="about-text" data-i18n-html="about.text"></p>
           </section>
 
           <!-- ===== Navigation ===== -->
@@ -60,7 +47,6 @@
             <button class="tab-btn active" data-tab="projets"     data-i18n="tab.projects">Projets</button>
             <button class="tab-btn"        data-tab="contacts"    data-i18n="tab.contacts">Contacts</button>
             <button class="tab-btn"        data-tab="competences" data-i18n="tab.skills">Compétences</button>
-            <!-- Flèches : desktop uniquement -->
             <p class="nav-hint desktop-only" data-i18n="nav.hint">← → pour changer d'onglet</p>
           </nav>
 
@@ -71,43 +57,34 @@
             <div class="tab-content active" id="projets">
               <div class="projects-grid">
 
-                <a href="https://github.com/eguediche/tp-ip-adress-tracker" target="_blank" rel="noopener" class="project-link">
-                  <div class="project-card">
-                    <div class="project-thumbnail">
-                      <img src="images/project-ip-tracker.webp" alt="IP Tracker" />
-                    </div>
-                    <div class="project-info">
-                      <div class="project-header">
-                        <h3 class="project-name">IP Tracker</h3>
-                        <span class="clickable-badge" data-i18n="project.clickable">👆 je suis clickable</span>
-                      </div>
-                      <p class="project-desc" data-i18n="project.ip.desc">
-                        Un projet en HTML, CSS et JS qui localise une ville via une adresse IP.
-                        Réalisé en milieu d'année, c'était le début de mon apprentissage de JS et des API publiques.
-                      </p>
-                      <span class="project-tags">HTML · CSS · JS · API</span>
-                    </div>
+                <!-- Chaque project-card déclenche l'overlay via data-project -->
+                <div class="project-card" data-project="ip">
+                  <div class="project-thumbnail">
+                    <img src="images/project-ip-tracker.webp" alt="IP Tracker" />
                   </div>
-                </a>
+                  <div class="project-info">
+                    <div class="project-header">
+                      <h3 class="project-name">IP Tracker</h3>
+                      <span class="clickable-badge" data-i18n="project.clickable">👆 je suis clickable</span>
+                    </div>
+                    <p class="project-desc" data-i18n="project.ip.desc"></p>
+                    <span class="project-tags">HTML · CSS · JS · API</span>
+                  </div>
+                </div>
 
-                <a href="https://github.com/eguediche/api-food-searcher" target="_blank" rel="noopener" class="project-link">
-                  <div class="project-card">
-                    <div class="project-thumbnail">
-                      <img src="images/project-food-searcher.png" alt="Food Searcher" />
-                    </div>
-                    <div class="project-info">
-                      <div class="project-header">
-                        <h3 class="project-name">API Food Searcher</h3>
-                        <span class="clickable-badge" data-i18n="project.clickable">👆 je suis clickable</span>
-                      </div>
-                      <p class="project-desc" data-i18n="project.food.desc">
-                        Un projet en HTML, CSS et JS qui recherche des plats via une API.
-                        Fait en fin de 1ère année, en moins d'une heure — c'était la fin de mon cursus JS avant d'attaquer le back-end.
-                      </p>
-                      <span class="project-tags">HTML · CSS · JS · API</span>
-                    </div>
+                <div class="project-card" data-project="food">
+                  <div class="project-thumbnail">
+                    <img src="images/project-food-searcher.png" alt="Food Searcher" />
                   </div>
-                </a>
+                  <div class="project-info">
+                    <div class="project-header">
+                      <h3 class="project-name">API Food Searcher</h3>
+                      <span class="clickable-badge" data-i18n="project.clickable">👆 je suis clickable</span>
+                    </div>
+                    <p class="project-desc" data-i18n="project.food.desc"></p>
+                    <span class="project-tags">HTML · CSS · JS · API</span>
+                  </div>
+                </div>
 
               </div>
             </div>
@@ -124,13 +101,8 @@
                 <a href="https://discord.com/users/935867927788400640" target="_blank" rel="noopener" class="contact-item">
                   <span class="contact-icon">→</span> Discord
                 </a>
-                <a href="https://www.linkedin.com/in/eguediche/" target="_blank" rel="noopener" class="contact-item">
-                  <span class="contact-icon">→</span> LinkedIn
-                </a>
               </div>
-              <p class="contact-note" data-i18n="contact.note">
-                Pour tout contact professionnel, merci de passer par l'email.
-              </p>
+              <p class="contact-note" data-i18n="contact.note">Pour tout contact professionnel, merci de passer par l'email.</p>
             </div>
 
             <!-- Skills -->
@@ -216,6 +188,38 @@
 
         </div>
       </div>
+    </div>
+
+    <!-- ===== Project Split Overlay ===== -->
+    <div class="project-overlay" id="project-overlay" aria-hidden="true">
+      <!-- Bouton fermer -->
+      <button class="overlay-close" id="overlay-close" aria-label="Fermer">✕</button>
+
+      <!-- Moitié HAUT — GitHub -->
+      <a class="split-half split-top" id="split-github" href="#" target="_blank" rel="noopener">
+        <div class="split-content">
+          <!-- GitHub logo SVG inline pour pas dépendre d'une image externe -->
+          <svg class="gh-logo" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/>
+          </svg>
+          <span class="split-label" data-i18n="overlay.github">Voir sur GitHub</span>
+          <span class="split-sub" data-i18n="overlay.github.sub">Code source du projet</span>
+        </div>
+      </a>
+
+      <!-- Moitié BAS — Live demo -->
+      <a class="split-half split-bottom" id="split-live" href="#" target="_blank" rel="noopener">
+        <div class="split-content">
+          <div class="split-preview" id="split-preview-img">
+            <!-- image du projet injectée par JS -->
+          </div>
+          <span class="split-label" data-i18n="overlay.live">Voir le projet en live</span>
+          <span class="split-sub" data-i18n="overlay.live.sub">Hébergé sur GitHub Pages</span>
+        </div>
+      </a>
+
+      <!-- Ligne diagonale décorative au centre -->
+      <div class="split-divider"></div>
     </div>
 
     <script src="script.js"></script>
