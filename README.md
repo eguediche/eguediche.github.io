@@ -1,6 +1,6 @@
 # Guediche_Eden_Portfolio
 
-** My changes planning : **
+* My changes planning : *
 
 ---
 
