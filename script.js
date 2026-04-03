@@ -4,7 +4,7 @@
 // ============================================================
 
 const projects = {
-  ip: {
+  mood: {
     github:    "https://github.com/eguediche/project-mood-tracker",
     live:      "https://eguediche.github.io/project-mood-tracker",
     preview:   "images/project-mood-tracker.png",
