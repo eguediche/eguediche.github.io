@@ -5,9 +5,9 @@
 
 const projects = {
   ip: {
-    github:    "https://github.com/eguediche/tp-ip-adress-tracker",
-    live:      "https://eguediche.github.io/tp-ip-adress-tracker",
-    preview:   "images/project-ip-tracker.webp",
+    github:    "https://github.com/eguediche/project-mood-tracker",
+    live:      "https://eguediche.github.io/project-mood-tracker",
+    preview:   "images/project-mood-tracker.png",
   },
   food: {
     github:    "https://github.com/eguediche/api-food-searcher",
