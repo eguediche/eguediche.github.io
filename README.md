@@ -2,9 +2,7 @@
 
 ** My changes planning : **
 
-
 ---
-
 
 ## Planned changes :
 
