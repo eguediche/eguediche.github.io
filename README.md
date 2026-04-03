@@ -11,7 +11,7 @@
 
 * *Mood tracker project mobile adaptation*
 
-* *API food searcher mobile adaptation*
+* *API food searcher project mobile adaptation*
 
 * *Landing page changes, gonna have a landing page that will have a special animation, adding some content and time for the main page background to charge fully since it usually take seconds for it to charge fully*
 
