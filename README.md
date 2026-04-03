@@ -1,7 +1,10 @@
 # Guediche_Eden_Portfolio
 
 ** My changes planning : **
+
+
 ---
+
 
 ## Planned changes :
 
