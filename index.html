@@ -1,227 +1,933 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eden GUEDICHE - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="images/icon.png" />
-    <link rel="apple-touch-icon" href="images/icon.png" />
-    <meta name="description" content="Portfolio de Eden GUEDICHE - Développeur web full stack" />
-    <meta name="author" content="Eden GUEDICHE" />
-  </head>
-  <body>
-    <div class="background-wrapper">
-      <div class="container">
-        <div class="content-card">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eden GUEDICHE — Portfolio</title>
+  <link rel="icon" type="image/png" href="images/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-          <!-- ===== Header ===== -->
-          <header class="profile-header">
-            <div class="profile-icon">
-              <img src="images/profile.jpg" alt="Eden G" />
-            </div>
+    :root {
+      --black: #111111;
+      --gray-dark: #444444;
+      --gray-mid: #888888;
+      --gray-light: #d8d8d8;
+      --gray-faint: #f4f4f4;
+      --white: #ffffff;
+      --accent: #111111;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
 
-            <div class="profile-info">
-              <h1 class="profile-name">Eden GUEDICHE</h1>
-              <p class="profile-title" data-i18n="profile.title">Web dev full stack</p>
-            </div>
+    html { scroll-behavior: smooth; }
 
-            <!-- Language selector : UN seul drapeau (langue cible) -->
-            <div class="language-select">
-              <span class="flag-hint-text desktop-only" data-i18n="lang.hint">Changer la langue 👇</span>
-              <!-- badge mobile au-dessus du drapeau -->
-              <span class="lang-badge mobile-only" id="lang-badge">EN</span>
-              <!-- drapeau unique — src changée par JS -->
-              <img class="flag" id="lang-flag" src="images/flag-en.png" alt="Switch language" title="Switch language" />
-            </div>
-          </header>
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-          <!-- ===== About ===== -->
-          <section class="about-section">
-            <h2 class="section-title" data-i18n="about.title">À propos de moi :</h2>
-            <p class="about-text" data-i18n-html="about.text"></p>
-          </section>
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 6vw, 80px);
+      height: 58px;
+    }
 
-          <!-- ===== Navigation ===== -->
-          <nav class="nav-tabs">
-            <button class="tab-btn active" data-tab="projets"     data-i18n="tab.projects">Projets</button>
-            <button class="tab-btn"        data-tab="contacts"    data-i18n="tab.contacts">Contacts</button>
-            <button class="tab-btn"        data-tab="competences" data-i18n="tab.skills">Compétences</button>
-            <p class="nav-hint desktop-only" data-i18n="nav.hint">← → pour changer d'onglet</p>
-          </nav>
+    .nav-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--black);
+      text-decoration: none;
+    }
 
-          <!-- ===== Tab Content ===== -->
-          <div class="tab-content-wrapper">
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
 
-            <!-- Projects -->
-            <div class="tab-content active" id="projets">
-              <div class="projects-grid">
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
 
-                <!-- Chaque project-card déclenche l'overlay via data-project -->
-                <div class="project-card" data-project="mood">
-                  <div class="project-thumbnail">
-                    <img src="images/project-mood-tracker.png" alt="Mood Tracker" />
-                  </div>
-                  <div class="project-info">
-                    <div class="project-header">
-                      <h3 class="project-name">Mood tracker</h3>
-                      <span class="clickable-badge" data-i18n="project.clickable">👆 cliquer moi</span>
-                    </div>
-                    <p class="project-desc" data-i18n="project.mood.desc"></p>
-                    <span class="project-tags">HTML · CSS · JS</span>
-                  </div>
-                </div>
+    .nav-links a {
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      text-decoration: none;
+      transition: color .2s;
+    }
 
-                <div class="project-card" data-project="food">
-                  <div class="project-thumbnail">
-                    <img src="images/project-food-searcher.png" alt="Food Searcher" />
-                  </div>
-                  <div class="project-info">
-                    <div class="project-header">
-                      <h3 class="project-name">API Food Searcher</h3>
-                      <span class="clickable-badge" data-i18n="project.clickable">👆 cliquer moi</span>
-                    </div>
-                    <p class="project-desc" data-i18n="project.food.desc"></p>
-                    <span class="project-tags">HTML · CSS · JS · API</span>
-                  </div>
-                </div>
+    .nav-links a:hover { color: var(--black); }
 
-              </div>
-            </div>
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      cursor: pointer;
+      border: 1px solid var(--gray-light);
+      padding: 5px 10px;
+      border-radius: 3px;
+      background: none;
+      transition: all .2s;
+    }
 
-            <!-- Contacts -->
-            <div class="tab-content" id="contacts">
-              <div class="contact-list">
-                <a href="https://github.com/eguediche" target="_blank" rel="noopener" class="contact-item">
-                  <span class="contact-icon">→</span> Github
-                </a>
-                <a href="mailto:edeng.devfullstack@gmail.com" class="contact-item">
-                  <span class="contact-icon">→</span> Email
-                </a>
-                <a href="https://discord.com/users/935867927788400640" target="_blank" rel="noopener" class="contact-item">
-                  <span class="contact-icon">→</span> Discord
-                </a>
-                <a href="https://www.linkedin.com/in/eguediche/" target="_blank" rel="noopener" class="contact-item">
-                  <span class="contact-icon">→</span> LinkedIn
-                </a>
-              </div>
-              <p class="contact-note" data-i18n="contact.note">Pour tout contact professionnel, merci de passer par l'email.</p>
-            </div>
+    .lang-toggle:hover {
+      border-color: var(--black);
+      color: var(--black);
+    }
 
-            <!-- Skills -->
-            <div class="tab-content" id="competences">
+    .lang-toggle img {
+      width: 16px;
+      height: 11px;
+      object-fit: cover;
+      border-radius: 1px;
+    }
 
-              <div class="skills-section">
-                <h3 class="skills-label" data-i18n="skills.mastered">Maîtrisé</h3>
-                <div class="skills-badges">
-                  <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5"/>
-                  </a>
-                  <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/css3/1572B6" alt="CSS3"/>
-                  </a>
-                  <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript"/>
-                  </a>
-                  <a href="https://www.php.net" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/php/777BB4" alt="PHP"/>
-                  </a>
-                  <a href="https://www.mysql.com" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL"/>
-                  </a>
-                  <a href="https://getcomposer.org" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/composer/885630" alt="Composer"/>
-                  </a>
-                </div>
-              </div>
+    /* ── LAYOUT ── */
+    main { padding-top: 58px; }
 
-              <div class="skills-section">
-                <h3 class="skills-label" data-i18n="skills.learning">En apprentissage</h3>
-                <div class="skills-badges">
-                  <a href="https://laravel.com/docs" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel"/>
-                  </a>
-                </div>
-              </div>
+    section {
+      padding: clamp(64px, 10vw, 120px) clamp(24px, 6vw, 80px);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-              <div class="skills-section">
-                <h3 class="skills-label" data-i18n="skills.next">Prochainement</h3>
-                <div class="skills-badges">
-                  <a href="https://nodejs.org" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js"/>
-                  </a>
-                  <a href="https://react.dev" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="React"/>
-                  </a>
-                  <a href="https://vuejs.org" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue.js"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue.js"/>
-                  </a>
-                  <a href="https://symfony.com/doc" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Symfony-000000?style=for-the-badge&logo=symfony&logoColor=white" alt="Symfony"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/symfony/111111" alt="Symfony"/>
-                  </a>
-                  <a href="https://www.lua.org/docs.html" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" alt="Lua"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/lua/2C2D72" alt="Lua"/>
-                  </a>
-                  <a href="https://docs.docker.com" target="_blank" rel="noopener" class="skill-link">
-                    <img class="badge-full" src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
-                    <img class="badge-icon" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"/>
-                  </a>
-                </div>
-              </div>
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 20px;
+      display: block;
+    }
 
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--gray-light);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: clamp(80px, 14vw, 160px);
+      padding-bottom: clamp(64px, 10vw, 120px);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 48px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-left: clamp(24px, 6vw, 80px);
+      padding-right: clamp(24px, 6vw, 80px);
+    }
+
+    .hero-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--gray-light);
+      flex-shrink: 0;
+    }
+
+    .hero-text {}
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-mid);
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--gray-dark);
+      max-width: 620px;
+      line-height: 1.8;
+    }
+
+    .hero-desc a {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      border: 1px solid var(--gray-light);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .25s, transform .25s;
+    }
+
+    .project-card:hover {
+      border-color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: var(--gray-faint);
+    }
+
+    .project-body {
+      padding: 20px 22px 22px;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 13.5px;
+      color: var(--gray-dark);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .project-tags {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 14px;
+      text-decoration: none;
+    }
+
+    .project-cta::after { content: '→'; }
+
+    /* ── SKILLS ── */
+    .skills-group {
+      margin-top: 40px;
+    }
+
+    .skills-group + .skills-group { margin-top: 32px; }
+
+    .skills-group-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 14px;
+    }
+
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border: 1px solid var(--gray-light);
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-dark);
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--black);
+      color: var(--black);
+    }
+
+    .skill-chip img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    /* ── CONTACTS ── */
+    .contacts-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--gray-light);
+      text-decoration: none;
+      color: var(--black);
+      transition: padding-left .2s;
+    }
+
+    .contacts-list .contact-row:first-child {
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .contact-row:hover { padding-left: 8px; }
+
+    .contact-platform {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .contact-handle {
+      font-size: 12.5px;
+      color: var(--gray-mid);
+      letter-spacing: 0.04em;
+    }
+
+    .contact-arrow {
+      font-size: 14px;
+      color: var(--gray-mid);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--gray-light);
+      padding: 32px clamp(24px, 6vw, 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--gray-mid);
+    }
+
+    /* ── OVERLAY ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s;
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .overlay-half {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background .2s;
+    }
+
+    .overlay-top {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .overlay-top:hover { background: #222; }
+
+    .overlay-bottom {
+      background: var(--white);
+      color: var(--black);
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .overlay-bottom:hover { background: var(--gray-faint); }
+
+    .overlay-inner {
+      text-align: center;
+    }
+
+    .overlay-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 12px;
+    }
+
+    .overlay-label {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      display: block;
+    }
+
+    .overlay-sub {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      display: block;
+      opacity: 0.5;
+    }
+
+    .overlay-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 10;
+      line-height: 1;
+    }
+
+    .overlay-preview {
+      width: 200px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+
+    .overlay-preview img { width: 100%; display: block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      #hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .hero-photo { width: 72px; height: 72px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    /* ── NAV FREESTYLE BUTTON ── */
+    .nav-freestyle-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      cursor: pointer;
+      padding: 0;
+      transition: color .2s;
+    }
+    .nav-freestyle-btn:hover { color: var(--black); }
+
+    /* ── FREESTYLE OVERLAY ── */
+    #freestyle-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px clamp(24px, 8vw, 120px);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s;
+    }
+    #freestyle-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .freestyle-close {
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.6;
+      transition: opacity .2s;
+    }
+    .freestyle-close:hover { opacity: 1; }
+
+    .freestyle-quote {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    .freestyle-sub {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 14px;
+    }
+
+    .freestyle-arrow {
+      color: rgba(255,255,255,0.3);
+      font-size: 20px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    @keyframes pink-glow {
+      0%, 100% {
+        box-shadow: 0 0 8px #ff2d78, 0 0 18px #ff2d7840;
+        border-color: #ff2d78;
+      }
+      50% {
+        box-shadow: 0 0 20px #ff2d78, 0 0 40px #ff2d7880, 0 0 60px #ff2d7830;
+        border-color: #ff6aaa;
+      }
+    }
+
+    .freestyle-btn {
+      display: inline-block;
+      background: #000;
+      border: 1.5px solid #ff2d78;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      padding: 14px 36px;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 3px;
+      animation: pink-glow 1.8s ease-in-out infinite;
+      transition: background .2s;
+    }
+    .freestyle-btn:hover { background: #0d0d0d; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-name">Eden Guediche</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+        <img id="lang-flag" src="images/flag-en.png" alt="EN" />
+        <span id="lang-label">EN</span>
+      </button>
+        <li><button class="nav-freestyle-btn" id="open-freestyle" data-i18n="nav.freestyle">Portfolio freestyle</button></li>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" style="padding:0">
+      <img src="images/profile.jpg" alt="Eden Guediche" class="hero-photo" />
+      <div class="hero-text">
+        <h1 class="hero-name">Eden<br>Guediche</h1>
+        <p class="hero-title" data-i18n="hero.title">Web dev full stack</p>
+        <p class="hero-desc" data-i18n-html="hero.desc"></p>
+      </div>
+    </section>
+
+    <div class="divider" style="max-width:1100px;margin:0 auto 0;padding:0 clamp(24px,6vw,80px)"><div style="height:1px;background:var(--gray-light)"></div></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <span class="section-label" data-i18n="section.projects">Projets</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:300" data-i18n="projects.heading">Travaux récents</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card" data-project="mood">
+          <img src="images/project-mood-tracker.png" alt="Mood Tracker" />
+          <div class="project-body">
+            <h3 class="project-title">Mood Tracker</h3>
+            <p class="project-desc" data-i18n="project.mood.desc"></p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+              <span class="project-tags">HTML · CSS · JS</span>
+              <span class="project-cta" data-i18n="project.cta">Voir le projet</span>
             </div>
           </div>
+        </div>
 
-          <!-- ===== Footer ===== -->
-          <footer class="footer-note">
-            <p data-i18n="footer.text">Ce portfolio est encore en cours de développement. :)</p>
-          </footer>
+        <div class="project-card" data-project="food">
+          <img src="images/project-food-searcher.png" alt="Food Searcher" />
+          <div class="project-body">
+            <h3 class="project-title">API Food Searcher</h3>
+            <p class="project-desc" data-i18n="project.food.desc"></p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+              <span class="project-tags">HTML · CSS · JS · API</span>
+              <span class="project-cta" data-i18n="project.cta">Voir le projet</span>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </section>
+
+    <div style="max-width:1100px;margin:0 auto;padding:0 clamp(24px,6vw,80px)"><div style="height:1px;background:var(--gray-light)"></div></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <span class="section-label" data-i18n="section.skills">Compétences</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:300" data-i18n="skills.heading">Stack technique</h2>
+
+      <div class="skills-group">
+        <p class="skills-group-label" data-i18n="skills.mastered">Maîtrisé</p>
+        <div class="skills-row">
+          <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" /> HTML5
+          </a>
+          <a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/css/1572B6" alt="CSS3" /> CSS3
+          </a>
+          <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" /> JavaScript
+          </a>
+          <a href="https://www.php.net" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/php/777BB4" alt="PHP" /> PHP
+          </a>
+          <a href="https://www.mysql.com" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" /> MySQL
+          </a>
+          <a href="https://getcomposer.org" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/composer/885630" alt="Composer" /> Composer
+          </a>
         </div>
       </div>
-    </div>
 
-    <!-- ===== Project Split Overlay ===== -->
-    <div class="project-overlay" id="project-overlay" aria-hidden="true">
-      <!-- Bouton fermer -->
-      <button class="overlay-close" id="overlay-close" aria-label="Fermer">✕</button>
-
-      <!-- Moitié HAUT — GitHub -->
-      <a class="split-half split-top" id="split-github" href="#" target="_blank" rel="noopener">
-        <div class="split-content">
-          <!-- GitHub logo SVG inline pour pas dépendre d'une image externe -->
-          <svg class="gh-logo" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/>
-          </svg>
-          <span class="split-label" data-i18n="overlay.github">Voir sur GitHub</span>
-          <span class="split-sub" data-i18n="overlay.github.sub">Code source du projet</span>
+      <div class="skills-group">
+        <p class="skills-group-label" data-i18n="skills.learning">En apprentissage</p>
+        <div class="skills-row">
+          <a href="https://laravel.com/docs" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel" /> Laravel
+          </a>
         </div>
-      </a>
+      </div>
 
-      <!-- Moitié BAS — Live demo -->
-      <a class="split-half split-bottom" id="split-live" href="#" target="_blank" rel="noopener">
-        <div class="split-content">
-          <div class="split-preview" id="split-preview-img">
-            <!-- image du projet injectée par JS -->
-          </div>
-          <span class="split-label" data-i18n="overlay.live">Voir le projet en live</span>
-          <span class="split-sub" data-i18n="overlay.live.sub">Hébergé sur GitHub Pages</span>
+      <div class="skills-group">
+        <p class="skills-group-label" data-i18n="skills.next">Prochainement</p>
+        <div class="skills-row">
+          <a href="https://nodejs.org" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js" /> Node.js
+          </a>
+          <a href="https://react.dev" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" /> React
+          </a>
+          <a href="https://vuejs.org" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue.js" /> Vue.js
+          </a>
+          <a href="https://symfony.com/doc" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/symfony/111111" alt="Symfony" /> Symfony
+          </a>
+          <a href="https://www.lua.org/docs.html" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/lua/2C2D72" alt="Lua" /> Lua
+          </a>
+          <a href="https://docs.docker.com" target="_blank" rel="noopener" class="skill-chip">
+            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" /> Docker
+          </a>
         </div>
-      </a>
-    </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <div style="max-width:1100px;margin:0 auto;padding:0 clamp(24px,6vw,80px)"><div style="height:1px;background:var(--gray-light)"></div></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <span class="section-label" data-i18n="section.contact">Contact</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:300" data-i18n="contact.heading">Me contacter</h2>
+
+      <div class="contacts-list">
+        <a href="https://github.com/eguediche" target="_blank" rel="noopener" class="contact-row">
+          <span class="contact-platform">GitHub</span>
+          <span style="display:flex;align-items:center;gap:20px">
+            <span class="contact-handle">eguediche</span>
+            <span class="contact-arrow">↗</span>
+          </span>
+        </a>
+        <a href="mailto:edeng.devfullstack@gmail.com" class="contact-row">
+          <span class="contact-platform">Email</span>
+          <span style="display:flex;align-items:center;gap:20px">
+            <span class="contact-handle">edeng.devfullstack@gmail.com</span>
+            <span class="contact-arrow">↗</span>
+          </span>
+        </a>
+        <a href="https://www.linkedin.com/in/eguediche/" target="_blank" rel="noopener" class="contact-row">
+          <span class="contact-platform">LinkedIn</span>
+          <span style="display:flex;align-items:center;gap:20px">
+            <span class="contact-handle">eguediche</span>
+            <span class="contact-arrow">↗</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Eden Guediche — <span data-i18n="footer.year">2025</span></span>
+    <span data-i18n="footer.wip">Portfolio en cours de développement</span>
+  </footer>
+
+  <!-- PROJECT OVERLAY -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <button class="overlay-close" id="overlay-close" aria-label="Fermer">✕</button>
+
+    <a class="overlay-half overlay-top" id="overlay-github" href="#" target="_blank" rel="noopener">
+      <div class="overlay-inner">
+        <svg class="overlay-icon" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/>
+        </svg>
+        <span class="overlay-label" data-i18n="overlay.github">Voir sur GitHub</span>
+        <span class="overlay-sub" data-i18n="overlay.github.sub">Code source du projet</span>
+      </div>
+    </a>
+
+    <a class="overlay-half overlay-bottom" id="overlay-live" href="#" target="_blank" rel="noopener">
+      <div class="overlay-inner">
+        <div class="overlay-preview" id="overlay-preview"></div>
+        <span class="overlay-label" data-i18n="overlay.live">Voir en live</span>
+        <span class="overlay-sub" data-i18n="overlay.live.sub">Hébergé sur GitHub Pages</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- FREESTYLE OVERLAY -->
+  <div id="freestyle-overlay" aria-hidden="true">
+    <button class="freestyle-close" id="freestyle-close" aria-label="Fermer">✕</button>
+    <p class="freestyle-quote" data-i18n="freestyle.quote"></p>
+    <p class="freestyle-sub" data-i18n="freestyle.sub">Si vous souhaitez voir cet ancien portfolio (abandonnée)</p>
+    <span class="freestyle-arrow">↓</span>
+    <a class="freestyle-btn" href="https://nythkrool.github.io" target="_blank" rel="noopener">N¥TH</a>
+  </div>
+
+  <script>
+    // ── PROJECTS ──
+    const projects = {
+      mood: {
+        github:  "https://github.com/eguediche/project-mood-tracker",
+        live:    "https://eguediche.github.io/project-mood-tracker",
+        preview: "images/project-mood-tracker.png",
+      },
+      food: {
+        github:  "https://github.com/eguediche/api-food-searcher",
+        live:    "https://eguediche.github.io/api-food-searcher",
+        preview: "images/project-food-searcher.png",
+      },
+    };
+
+    // ── TRANSLATIONS ──
+    const T = {
+      fr: {
+        "nav.projects":      "Projets",
+        "nav.skills":        "Compétences",
+        "nav.contact":       "Contact",
+        "hero.title":        "Web dev full stack",
+        "hero.desc":         `J'ai créé ce portfolio afin de trouver une alternance pour ma 3ᵉ année de lycée à <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>. Curieux et dynamique, je me suis intéressé au code dès la classe de 3ᵉ, après avoir eu envie de créer mon propre jeu vidéo. Cette envie m'a poussé à poursuivre mes études dans le développement. Je me suis donc orienté vers <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>, une école spécialisée en développement web et web mobile full stack.`,
+        "section.projects":  "Projets",
+        "projects.heading":  "Travaux récents",
+        "project.mood.desc": "Un projet en HTML, CSS et JS qui permet de suivre son humeur au fil du temps. Fait en éval de fin d'année, sur JS et le DOM.",
+        "project.food.desc": "Un projet en HTML, CSS et JS qui recherche des plats via une API. Fait en fin de 1ère année, en moins d'une heure.",
+        "project.cta":       "Voir le projet",
+        "section.skills":    "Compétences",
+        "skills.heading":    "Stack technique",
+        "skills.mastered":   "Maîtrisé",
+        "skills.learning":   "En apprentissage",
+        "skills.next":       "Prochainement",
+        "section.contact":   "Contact",
+        "contact.heading":   "Me contacter",
+        "footer.year":       "2025",
+        "footer.wip":        "Portfolio en cours de développement",
+        "nav.freestyle":     "Portfolio freestyle",
+        "freestyle.quote":   "On m'a demandé de créer un portfolio qui me ressemble. Je l'ai fait. Mais les gens n'ont pas aimé — trop sombre, trop freestyle, pas assez professionnel. J'ai donc recommencé : blanc, sobre, propre.",
+        "freestyle.sub":     "Si vous souhaitez voir cet ancien portfolio (abandonnée)",
+        "overlay.github":    "Voir sur GitHub",
+        "overlay.github.sub":"Code source du projet",
+        "overlay.live":      "Voir en live",
+        "overlay.live.sub":  "Hébergé sur GitHub Pages",
+      },
+      en: {
+        "nav.projects":      "Projects",
+        "nav.skills":        "Skills",
+        "nav.contact":       "Contact",
+        "hero.title":        "Full stack web dev",
+        "hero.desc":         `I created this portfolio to find an apprenticeship for my 3rd year at <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>. Curious and driven, I got into coding in middle school after wanting to build my own video game. That passion led me to pursue web development studies at <a href="https://www.edenschool.fr/" target="_blank" rel="noopener">EDEN School</a>, a school specializing in full stack web development.`,
+        "section.projects":  "Projects",
+        "projects.heading":  "Recent work",
+        "project.mood.desc": "An HTML, CSS & JS project that tracks your mood over time. Built as a final year evaluation, using JS and the DOM.",
+        "project.food.desc": "An HTML, CSS & JS project that searches for dishes via an API. Built at the end of year 1 in under an hour.",
+        "project.cta":       "View project",
+        "section.skills":    "Skills",
+        "skills.heading":    "Tech stack",
+        "skills.mastered":   "Mastered",
+        "skills.learning":   "Learning",
+        "skills.next":       "Coming next",
+        "section.contact":   "Contact",
+        "contact.heading":   "Get in touch",
+        "footer.year":       "2025",
+        "footer.wip":        "Portfolio work in progress",
+        "nav.freestyle":     "Freestyle portfolio",
+        "freestyle.quote":   "I was asked to build a portfolio that represents me. I did. But people didn't like it — too dark, too freestyle, not professional enough. So I started over: white, clean, simple.",
+        "freestyle.sub":     "If you'd like to see that old portfolio (discontinued)",
+        "overlay.github":    "View on GitHub",
+        "overlay.github.sub":"Project source code",
+        "overlay.live":      "View live demo",
+        "overlay.live.sub":  "Hosted on GitHub Pages",
+      },
+    };
+
+    let lang = "fr";
+
+    function setLang(l) {
+      lang = l;
+      const t = T[l];
+      document.documentElement.lang = l;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (t[k] !== undefined) el.textContent = t[k];
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach(el => {
+        const k = el.getAttribute("data-i18n-html");
+        if (t[k] !== undefined) el.innerHTML = t[k];
+      });
+
+      const flag  = document.getElementById("lang-flag");
+      const label = document.getElementById("lang-label");
+      if (l === "fr") {
+        flag.src = "images/flag-en.png"; flag.alt = "EN"; label.textContent = "EN";
+      } else {
+        flag.src = "images/flag-fr.png"; flag.alt = "FR"; label.textContent = "FR";
+      }
+    }
+
+    document.getElementById("lang-toggle").addEventListener("click", () => {
+      setLang(lang === "fr" ? "en" : "fr");
+    });
+
+    // ── OVERLAY ──
+    const overlay       = document.getElementById("overlay");
+    const overlayGithub = document.getElementById("overlay-github");
+    const overlayLive   = document.getElementById("overlay-live");
+    const overlayPrev   = document.getElementById("overlay-preview");
+    const closeBtn      = document.getElementById("overlay-close");
+
+    function openOverlay(key) {
+      const p = projects[key];
+      if (!p) return;
+      overlayGithub.href = p.github;
+      overlayLive.href   = p.live;
+      overlayPrev.innerHTML = `<img src="${p.preview}" alt="preview" />`;
+      overlay.classList.add("open");
+      overlay.setAttribute("aria-hidden","false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeOverlay() {
+      overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden","true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".project-card").forEach(card => {
+      card.addEventListener("click", () => openOverlay(card.dataset.project));
+    });
+
+    closeBtn.addEventListener("click", e => { e.preventDefault(); closeOverlay(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { closeOverlay(); closeFreestyle(); } });
+
+    // ── FREESTYLE OVERLAY ──
+    const freestyleOverlay = document.getElementById("freestyle-overlay");
+    const freestyleClose   = document.getElementById("freestyle-close");
+
+    function openFreestyle() {
+      freestyleOverlay.classList.add("open");
+      freestyleOverlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeFreestyle() {
+      freestyleOverlay.classList.remove("open");
+      freestyleOverlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("open-freestyle").addEventListener("click", openFreestyle);
+    freestyleClose.addEventListener("click", closeFreestyle);
+
+    // ── INIT ──
+    setLang("fr");
+  </script>
+</body>
 </html>
