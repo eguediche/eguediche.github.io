@@ -16,6 +16,8 @@ Portfolio personnel en HTML, CSS et JavaScript.
 ---
 
 ## Structure
+
+
 portfolio/
 ├── index.html                     # Page principale
 ├── script.js                      # Logique, traductions, overlays
