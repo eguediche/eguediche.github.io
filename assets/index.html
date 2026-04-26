@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eden Guediche - Portfolio</title>
+    <title>N¥TH - Portfolio</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="assets/icon.png" />
     <link rel="apple-touch-icon" href="assets/icon.png" />
     <meta name="description" content="Portfolio" />
-    <meta name="author" content="Eden Guediche" />
+    <meta name="author" content="N¥TH" />
     <!-- fonts pour la loading screen -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +35,7 @@
       <span class="ls-title">N¥TH</span>
       <img class="ls-branch" id="ls-branch" src="assets/sakura-branch.png" alt="" />
       <div class="ls-logo-image" id="ls-logo-image">
-        <img src="assets/motivated.png" alt="N¥TH" />
+        <img src="assets/nyth-portrait.png" alt="N¥TH" />
       </div>
     </div>
 
@@ -61,14 +61,15 @@
             <img src="assets/profile.jpg" alt="N¥TH" />
           </div>
           <div class="profile-info">
-            <h1 class="profile-name">Eden Guediche</h1>
+            <h1 class="profile-name">N¥TH</h1>
             <p class="profile-title" data-i18n="profile.title">Web dev full stack</p>
           </div>
-          <!-- toggle langue sobre -->
-          <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
-            <img id="lang-flag" src="assets/flag-en.png" alt="EN" />
-            <span id="lang-label">EN</span>
-          </button>
+          <!-- drapeau pour switcher la langue, géré par JS -->
+          <div class="language-select">
+            <span class="flag-hint-text desktop-only" data-i18n="lang.hint">Change language 👇</span>
+            <span class="lang-badge mobile-only" id="lang-badge">EN</span>
+            <img class="flag" id="lang-flag" src="assets/flag-en.png" alt="Switch language" title="Switch language" />
+          </div>
         </header>
 
         <!-- section à propos -->
@@ -100,48 +101,43 @@
               -->
               <div class="project-card" data-project="projet1">
                 <div class="project-thumbnail">
-                  <img src="assets/project-mood-tracker.png" alt="Mood Tracker" />
+                  <img src="assets/project-mood-tracker.png" alt="Projet 1" />
                 </div>
                 <div class="project-info">
                   <div class="project-header">
-                    <h3 class="project-name">Mood Tracker</h3>
+                    <h3 class="project-name">Projet 1</h3>
                     <span class="clickable-badge" data-i18n="project.clickable">👆 cliquer moi</span>
                   </div>
                   <p class="project-desc" data-i18n="project.projet1.desc"></p>
-                  <span class="project-tags">HTML · CSS · JS</span>
+                  <span class="project-tags">— · — · —</span>
                 </div>
               </div>
 
               <div class="project-card" data-project="projet2">
                 <div class="project-thumbnail">
-                  <img src="assets/project-food-searcher.png" alt="API Food Searcher" />
+                  <img src="assets/project-food-searcher.png" alt="Projet 2" />
                 </div>
                 <div class="project-info">
                   <div class="project-header">
-                    <h3 class="project-name">API Food Searcher</h3>
+                    <h3 class="project-name">Projet 2</h3>
                     <span class="clickable-badge" data-i18n="project.clickable">👆 cliquer moi</span>
                   </div>
                   <p class="project-desc" data-i18n="project.projet2.desc"></p>
-                  <span class="project-tags">HTML · CSS · JS · API</span>
+                  <span class="project-tags">— · — · —</span>
                 </div>
               </div>
 
             </div>
           </div>
 
+          <!-- onglet contacts (mettre mes vrais liens) -->
           <div class="tab-content" id="contacts">
             <div class="contact-list">
-              <a href="https://github.com/eguediche" target="_blank" rel="noopener" class="contact-item">
-                <span class="contact-icon">→</span> GitHub
+              <a href="#" target="_blank" rel="noopener" class="contact-item">
+                <span class="contact-icon">→</span> Github
               </a>
-              <a href="mailto:edeng.devfullstack@gmail.com" class="contact-item">
-                <span class="contact-icon">→</span> Email
-              </a>
-              <a href="https://discord.com/users/935867927788400640" target="_blank" rel="noopener" class="contact-item">
+              <a href="#" target="_blank" rel="noopener" class="contact-item">
                 <span class="contact-icon">→</span> Discord
-              </a>
-              <a href="https://www.linkedin.com/in/eguediche/" target="_blank" rel="noopener" class="contact-item">
-                <span class="contact-icon">→</span> LinkedIn
               </a>
             </div>
           </div>
