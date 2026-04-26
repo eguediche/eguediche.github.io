@@ -7,6 +7,9 @@ var petalContainer = document.getElementById("ls-petals");
 var branchImg      = document.getElementById("ls-branch");
 var alreadyClicked = false;
 
+// bloque le scroll pendant la loading screen
+document.body.classList.add("is-loading");
+
 // génère les pétales une fois la page chargée (besoin des coords du DOM)
 window.addEventListener("load", function() {
   var rect = branchImg.getBoundingClientRect();
@@ -44,6 +47,7 @@ loadingScreen.addEventListener("click", function() {
 
   videoBox.classList.add("vt-active");
   loadingScreen.classList.add("ls-hidden");
+  document.body.classList.remove("is-loading"); // scroll autorisé dès que la vidéo démarre
 
   video.currentTime = 0;
   video.muted       = false;

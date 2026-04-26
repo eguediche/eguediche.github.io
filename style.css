@@ -209,6 +209,15 @@ body {
   overflow-x: hidden;
 }
 
+/* bloque tout scroll (y compris touch/momentum iOS) pendant la loading screen */
+body.is-loading {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
 a {
   color: var(--text-dark);
   text-decoration: underline;
